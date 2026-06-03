@@ -6,9 +6,15 @@ const authController = require('../controllers/auth.controller');
 const router = express.Router();
 
 
-
+//User Auth Apis 
 router.post('/user/register',authController.registerUser);
 router.post('/user/login',authController.loginUser);
+router.get('/user/logout', authController.logoutUser);
+
+//Food Partner Auth Apis
+router.post('/foodpartner/register', authController.registerFoodPartner);
+router.post('/foodpartner/login', authController.loginFoodPartner);
+router.get('/foodpartner/logout', authController.logoutFoodPartner);
 
 
 
