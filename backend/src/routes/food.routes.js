@@ -1,10 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const foodController = require('../controllers/food.controller');
-const aurhMiddleware = require('../middlewares/auth.middleware');
-
-
-
+const authMiddleware = require('../middlewares/auth.middleware');
 /* POST /api/food/ [PROTECTED]  */
 router.post('/' ,authMiddleware.authFoodPartnerMiddleware, foodController.createFood)
 
