@@ -1,4 +1,4 @@
-const foodpartnerModel = require("../models/foodPartner.model")
+const foodPartnerModel = require("../models/foodPartner.model")
 const jwt = require("jsonwebtoken");
 
 
@@ -12,9 +12,9 @@ async function authFoodPartnerMiddleware(req , res , next){
 
 
     try{
-        const decode = jwt.varify(token.process.env.JWT_SECRET)
+        const decode = jwt.verify(token , process.env.JWT_SECRET)
 
-        const foodPartner = await foodPartnerModel.findId(decode.id);
+        const foodPartner = await foodPartnerModel.findById(decode.id);
 
         req.foodPartner = foodPartner;
         
